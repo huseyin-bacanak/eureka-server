@@ -3,12 +3,14 @@ server:
 
 eureka:
   instance:
-    hostname: discovery
+    hostname: localhost
   client:
-    registerWithEureka: false
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+    registerWithEureka: true
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://discovery:${server.port}/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 spring:
   cloud:
