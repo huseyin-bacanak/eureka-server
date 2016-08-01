@@ -1,0 +1,29 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: discovery
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://discovery:${server.port}/eureka/
+
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+    dashboard:
+      context: /admin
+      http:
+        # Basic Credentials
+        username: user
+        password: password
+
+        # Optional Defaults values
+        maxConnection: 100
+        connectTimeout: 1000
+        socketTimeout: 2000
+        requestTimeout: 1000
